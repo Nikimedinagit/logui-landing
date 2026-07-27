@@ -1,75 +1,82 @@
-import React, { useState, useEffect } from 'react'
-import { Menu, X, Moon, Sun } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { useTheme } from "@/components/theme-provider"
+import React, { useState, useEffect } from "react";
+import { Menu, X, Moon, Sun } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useTheme } from "@/components/theme-provider";
 
 const Navbar = () => {
-  const { setTheme, theme } = useTheme()
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [activeSection, setActiveSection] = useState('inicio')
+  const { setTheme, theme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("inicio");
 
   const navLinks = [
-    { name: 'INICIO', href: '#inicio', id: 'inicio' },
-    { name: 'GESTIÓN', href: '#gestion', id: 'gestion' },
-    { name: 'SERVICIOS', href: '#servicios', id: 'servicios' },
-    { name: 'CLIENTES', href: '#clientes', id: 'clientes' },
-    { name: 'NOSOTROS', href: '#nosotros', id: 'nosotros' },
-    { name: 'CONTACTO', href: '#contacto', id: 'contacto' },
-  ]
+    { name: "INICIO", href: "#inicio", id: "inicio" },
+    { name: "GESTIÓN", href: "#gestion", id: "gestion" },
+    { name: "SERVICIOS", href: "#servicios", id: "servicios" },
+    { name: "CLIENTES", href: "#clientes", id: "clientes" },
+    { name: "NOSOTROS", href: "#nosotros", id: "nosotros" },
+    { name: "CONTACTO", href: "#contacto", id: "contacto" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = navLinks.map(link => document.getElementById(link.id))
-      const scrollPosition = window.scrollY + 100
+      const sections = navLinks.map((link) => document.getElementById(link.id));
+      const scrollPosition = window.scrollY + 100;
 
-      sections.forEach(section => {
-        if (section && 
-            scrollPosition >= section.offsetTop && 
-            scrollPosition < section.offsetTop + section.offsetHeight) {
-          setActiveSection(section.id)
+      sections.forEach((section) => {
+        if (
+          section &&
+          scrollPosition >= section.offsetTop &&
+          scrollPosition < section.offsetTop + section.offsetHeight
+        ) {
+          setActiveSection(section.id);
         }
-      })
-    }
+      });
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <nav className="fixed top-0 w-full z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl">
       <div className="w-full flex h-16 items-center justify-between px-6 md:px-16">
-        
         {/* LOGOTIPO */}
         <div className="flex items-center gap-2">
-          <span className="text-xl font-black tracking-tighter bg-gradient-to-r from-green-500 to-violet-500 bg-clip-text text-transparent">
+          <span className="text-2xl font-black tracking-tighter bg-gradient-to-r from-green-500 to-violet-500 bg-clip-text text-transparent">
             LOGUI SOFT
           </span>
         </div>
 
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id
+            const isActive = activeSection === link.id;
             return (
-              <a 
-                key={link.name} 
+              <a
+                key={link.name}
                 href={link.href}
-                className={`group relative text-[10px] font-bold tracking-[0.15em] transition-colors duration-300 ${
-                  isActive ? 'text-foreground' : 'text-muted-foreground hover:text-foreground'
+                className={`group relative text-[12px] font-bold tracking-[0.10em] transition-colors duration-300 ${
+                  isActive
+                    ? "text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {link.name}
-                <span className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-[2px] bg-violet-500 transition-all duration-300 ${
-                  isActive ? 'w-full opacity-100' : 'w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-50'
-                }`}></span>
+                <span
+                  className={`absolute -bottom-1.5 left-1/2 -translate-x-1/2 h-[2px] bg-violet-500 transition-all duration-300 ${
+                    isActive
+                      ? "w-full opacity-100"
+                      : "w-0 opacity-0 group-hover:w-1/2 group-hover:opacity-50"
+                  }`}
+                ></span>
               </a>
-            )
+            );
           })}
         </div>
 
         <div className="flex items-center gap-2">
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className="rounded-xl hover:bg-accent transition-colors"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
@@ -78,13 +85,17 @@ const Navbar = () => {
             <span className="sr-only">Cambiar tema</span>
           </Button>
 
-          <Button 
-            variant="ghost" 
-            size="icon" 
+          <Button
+            variant="ghost"
+            size="icon"
             className="md:hidden rounded-xl"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
-            {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {isMobileMenuOpen ? (
+              <X className="h-5 w-5" />
+            ) : (
+              <Menu className="h-5 w-5" />
+            )}
           </Button>
         </div>
       </div>
@@ -92,11 +103,13 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-border/40 bg-background/95 backdrop-blur-md p-6 space-y-5 animate-in slide-in-from-top duration-300">
           {navLinks.map((link) => (
-            <a 
-              key={link.name} 
+            <a
+              key={link.name}
               href={link.href}
               className={`block text-[11px] font-black tracking-widest uppercase transition-colors ${
-                activeSection === link.id ? 'text-green-500' : 'text-muted-foreground'
+                activeSection === link.id
+                  ? "text-green-500"
+                  : "text-muted-foreground"
               }`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
@@ -106,7 +119,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;

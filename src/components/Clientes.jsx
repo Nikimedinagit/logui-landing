@@ -131,7 +131,7 @@ const Clientes = () => {
           palabraResaltada="CLIENTES"
         />
 
-        <div className="relative mt-12 [mask-image:linear-gradient(to_right,transparent,black_30%,black_90%,transparent)] flex flex-col gap-16 md:gap-24">
+        <div className="relative mt-6 [mask-image:linear-gradient(to_right,transparent,black_30%,black_90%,transparent)] flex flex-col gap-16 md:gap-24">
           <div className="flex w-max animate-scroll-left hover:[animation-play-state:paused] gap-16 md:gap-24 items-center">
             {fila1.map((archivo, index) => (
               <React.Fragment key={`f1-${index}`}>

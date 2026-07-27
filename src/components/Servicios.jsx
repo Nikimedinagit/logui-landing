@@ -38,11 +38,11 @@ const Servicios = () => {
           palabraResaltada="SERVICIOS"
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
           {servicios.map((servicio, index) => (
             <div 
               key={index} 
-              className="group p-8 rounded-3xl bg-card border border-border hover:border-violet-500/50 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden"
+              className="group p-4 rounded-3xl bg-card border border-border hover:border-violet-500/50 transition-all duration-500 shadow-sm hover:shadow-2xl relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
                 {servicio.icon}
@@ -52,29 +52,29 @@ const Servicios = () => {
                 <div className="p-3 rounded-2xl bg-secondary">
                   {servicio.icon}
                 </div>
-                <h4 className="text-2xl font-black tracking-tighter uppercase text-foreground">
+                <h4 className="text-xl font-black tracking-tighter uppercase text-foreground">
                   {servicio.title}
                 </h4>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-2">
                 {servicio.items.map((item, idx) => (
                   <div key={idx} className="flex gap-4 items-start">
                     <div className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
-                    <p className="text-base text-muted-foreground font-medium leading-relaxed tracking-tight">
+                    <p className="text-lg text-muted-foreground font-medium leading-relaxed tracking-tight">
                       {item}
                     </p>
                   </div>
                 ))}
               </div>
               
-              <div className="mt-8 h-[1px] w-full bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-violet-500/50 transition-all" />
+              <div className="mt-4 h-[1px] w-full bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-violet-500/50 transition-all" />
             </div>
           ))}
         </div>
 
-        <div className="mt-8 p-4 border border-dashed border-border rounded-3xl text-center">
-          <p className="text-base font-medium tracking-tight text-muted-foreground">
+        <div className="mt-4 p-4 border border-dashed border-border rounded-3xl text-center">
+          <p className="text-lg font-medium tracking-tight text-muted-foreground">
             Todos nuestros servicios corresponden al <span className="text-violet-500 font-bold">Sector Informático</span> de alta gama.
           </p>
         </div>

@@ -5,7 +5,7 @@ import SectionTitle from "./SectionTitle";
 const Gestion = () => {
   const [selectedModule, setSelectedModule] = useState(null);
 
-const handleNavigation = (url) => {
+  const handleNavigation = (url) => {
     if (url) {
       window.open(url, "_blank", "noopener,noreferrer");
     }
@@ -21,6 +21,7 @@ const handleNavigation = (url) => {
       id: "punto-venta",
       title: "LOGUI PUNTO VENTA",
       desc: "Agilice su trabajo diario de venta.",
+      image: "/gestion/punto-de-venta.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-green-500",
       longDesc:
@@ -43,6 +44,7 @@ const handleNavigation = (url) => {
       id: "gestion",
       title: "LOGUI GESTIÓN",
       desc: "Software ágil y eficiente para su empresa.",
+      image: "/gestion/gestion.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-violet-600",
       longDesc:
@@ -68,6 +70,7 @@ const handleNavigation = (url) => {
       id: "store-food",
       title: "LOGUI STORE & FOOD",
       desc: "Completo para su emprendimiento gastronómico.",
+      image: "/gestion/store-food.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-violet-500",
       longDesc:
@@ -93,6 +96,7 @@ const handleNavigation = (url) => {
       id: "tiendas",
       title: "LOGUI TIENDAS",
       desc: "Control por talles y colores.",
+      image: "/gestion/tiendas.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-green-500",
       longDesc:
@@ -120,6 +124,7 @@ const handleNavigation = (url) => {
       id: "ferreteria",
       title: "LOGUI FERRETERÍA",
       desc: "Optimice el trabajo en su ferretería.",
+      image: "/gestion/ferreteria.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-green-500",
       longDesc:
@@ -147,6 +152,7 @@ const handleNavigation = (url) => {
       id: "distribucion",
       title: "LOGUI DISTRIBUCIÓN",
       desc: "Administre pedidos de forma eficaz.",
+      image: "/gestion/distribucion.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-violet-500",
       longDesc:
@@ -173,6 +179,7 @@ const handleNavigation = (url) => {
       id: "super",
       title: "LOGUI SUPER",
       desc: "Potente y ágil para minimercados.",
+      image: "/gestion/super.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-violet-500",
       longDesc:
@@ -198,6 +205,7 @@ const handleNavigation = (url) => {
       id: "mayorista",
       title: "LOGUI MAYORISTA",
       desc: "Manejo óptimo de información administrativa.",
+      image: "/gestion/mayorista.jpg",
       path: "https://www.loguigestion.com/",
       color: "from-violet-500",
       longDesc:
@@ -223,6 +231,7 @@ const handleNavigation = (url) => {
       id: "agro",
       title: "LOGUI AGRO",
       desc: "Soluciones para actividades agropecuarias.",
+      image: "/gestion/agro.jpg",
       path: "http://www.loguiagro.com/",
       color: "from-green-500",
       longDesc:
@@ -242,6 +251,7 @@ const handleNavigation = (url) => {
       id: "tareas",
       title: "MIS TAREAS",
       desc: "Organización de tareas y equipo.",
+      image: "/gestion/tareas.jpg",
       path: "http://gestion.mistareasapp.com/",
       color: "from-green-500",
       longDesc:
@@ -280,29 +290,36 @@ const handleNavigation = (url) => {
             <div
               key={item.id}
               onClick={() => setSelectedModule(item)}
-              className="group relative bg-card hover:bg-accent border border-border p-6 rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden flex flex-col justify-between min-h-[160px]"
+              className="group relative bg-card hover:bg-accent border border-border p-4 rounded-2xl cursor-pointer transition-all duration-300 shadow-sm hover:shadow-xl overflow-hidden flex flex-col justify-between min-h-[160px]"
             >
+              <img
+                src={item.image}
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover opacity-80 transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-card/95 via-card/90 to-card/70 transition-opacity duration-300 group-hover:opacity-85" />
+
               <div
                 className={`absolute -right-4 -top-4 w-16 h-16 bg-gradient-to-br ${item.color} opacity-10 blur-2xl group-hover:opacity-20 transition-opacity`}
               />
 
-              <div>
-                <h4 className="text-base font-black tracking-tighter text-foreground group-hover:text-primary transition-colors uppercase mb-2">
+              <div className="relative z-10">
+                <h4 className="text-lg font-black tracking-tighter text-foreground group-hover:text-primary transition-colors uppercase mb-2">
                   {item.title}
                 </h4>
-                <p className="text-base text-muted-foreground tracking-tight font-medium leading-snug line-clamp-2">
+                <p className="text-lg text-muted-foreground tracking-tight font-medium leading-snug line-clamp-2">
                   {item.desc}
                 </p>
               </div>
 
-              <div className="mt-4 flex items-center justify-between">
-                <span className="text-[11px] font-black text-violet-500 tracking-widest opacity-70 group-hover:opacity-100">
+              <div className="relative z-10 mt-4 flex items-center">
+                <span className="inline-flex items-center gap-2 rounded-full bg-violet-600 px-3 py-1.5 text-[12px] font-bold tracking-widest text-white shadow-md shadow-violet-500/20 transition-all group-hover:bg-green-500 group-hover:shadow-green-500/20">
                   SABER MÁS
+                  <ArrowRight
+                    size={13}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
                 </span>
-                <ArrowRight
-                  size={14}
-                  className="text-primary -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"
-                />
               </div>
             </div>
           ))}
@@ -317,26 +334,26 @@ const handleNavigation = (url) => {
           />
 
           <div className="relative w-full max-w-3xl bg-card border border-border sm:rounded-3xl shadow-2xl h-[85vh] sm:h-auto sm:max-h-[90vh] flex flex-col animate-in slide-in-from-bottom duration-500">
-            <div className="w-12 h-1.5 bg-muted rounded-full mx-auto mt-4 mb-2 opacity-50" />
+            <div className="w-12 h-1.5 bg-muted rounded-full mx-auto mb-2 opacity-50" />
 
             <button
               onClick={() => setSelectedModule(null)}
-              className="absolute top-6 right-6 p-2 rounded-full bg-accent/50 hover:bg-accent text-foreground transition-colors z-10 cursor-pointer"
+              className="absolute top-4 right-4 p-2 rounded-full bg-accent/50 hover:bg-accent text-foreground transition-colors z-10 cursor-pointer"
             >
               <X size={20} />
             </button>
 
-            <div className="px-8 pt-6 pb-4">
-              <h3 className="text-2xl md:text-3xl font-black uppercase tracking-tighter text-foreground">
+            <div className="px-4 pt-2 mb-2">
+              <h3 className="text-2xl md:text-2xl font-black uppercase tracking-tighter text-foreground">
                 {selectedModule.title}
               </h3>
-              <p className="text-base text-violet-500 font-black tracking-widest mt-1">
+              <p className="text-base text-violet-500 font-bold tracking-widest mt-1">
                 Detalles del módulo
               </p>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-8 py-4 space-y-6 scrollbar-thin scrollbar-thumb-violet-500/20 scrollbar-track-transparent">
-              <div className="p-5 bg-accent/30 rounded-2xl border border-border/50">
+            <div className="flex-1 overflow-y-auto px-4 py-2 space-y-4 scrollbar-thin scrollbar-thumb-violet-500/20 scrollbar-track-transparent">
+              <div className="p-4 bg-accent/30 rounded-2xl border border-border/50">
                 <p className="text-base text-muted-foreground font-medium leading-relaxed tracking-tight">
                   "{selectedModule.longDesc}"
                 </p>
@@ -346,7 +363,7 @@ const handleNavigation = (url) => {
                 {selectedModule.info.map((feature, idx) => (
                   <div
                     key={idx}
-                    className="flex gap-3 items-center p-3 bg-background border border-border/40 rounded-xl"
+                    className="flex gap-3 items-center p-2 bg-background border border-border/40 rounded-xl"
                   >
                     <CheckCircle2 className="text-green-500 shrink-0 w-4 h-4" />
                     <p className="text-base text-foreground/80 tracking-tight font-medium">
@@ -357,16 +374,16 @@ const handleNavigation = (url) => {
               </div>
             </div>
 
-            <div className="p-8 border-t border-border flex flex-col sm:flex-row gap-3">
-             <button
+            <div className="p-4 border-t border-border flex flex-col sm:flex-row gap-3">
+              <button
                 onClick={() => handleNavigation(selectedModule.path)}
-                className="flex-1 py-4 bg-primary text-primary-foreground text-xs font-black tracking-widest uppercase rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="flex-1 py-3 bg-primary text-primary-foreground text-xs font-bold tracking-widest uppercase rounded-xl hover:opacity-90 transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 Ir al Sistema <ExternalLink size={14} />
               </button>
               <button
                 onClick={() => setSelectedModule(null)}
-                className="px-8 py-4 bg-secondary text-secondary-foreground text-xs font-black tracking-widest uppercase rounded-xl hover:bg-accent transition-all cursor-pointer"
+                className="px-8 py-3 bg-secondary text-secondary-foreground text-xs font-bold tracking-widest uppercase rounded-xl hover:bg-accent transition-all cursor-pointer"
               >
                 Volver
               </button>
