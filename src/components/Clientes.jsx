@@ -126,7 +126,7 @@ const Clientes = () => {
     >
       <div className="w-full px-6 md:px-16">
         <SectionTitle
-          subtitulo="EMPRESAS QUE POTENCIAN SU GESTIÓN CON NUESTROS COMPONENTES DE SOFTWARE"
+          subtitulo="EMPRESAS QUE POTENCIAN SU GESTIÓN CON NUESTROS PRODUCTOS DE SOFTWARE"
           tituloPrincipal="NUESTROS"
           palabraResaltada="CLIENTES"
         />
