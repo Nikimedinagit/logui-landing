@@ -19,7 +19,6 @@ const Hero = () => {
       <div className="absolute left-1/2 top-1/2 -z-10 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-500/10 blur-[100px]" />
 
       <div className="w-full px-6 md:px-16 flex flex-col md:flex-row items-center gap-6 relative z-10">
-        
         <div className="flex-1 text-center md:text-left space-y-4">
           <h2 className="text-violet-500 font-bold tracking-[0.4em] text-xs md:text-sm uppercase">
             Potencia Tecnológica
@@ -34,7 +33,8 @@ const Hero = () => {
           <p className="text-foreground/70 text-sm md:text-lg max-w-[550px] font-medium uppercase tracking-widest leading-relaxed">
             Soluciones inteligentes para tu negocio
             <br className="hidden md:block" />
-            con el sello de <span className="text-green-500 font-bold">Logui Soft</span>.
+            con el sello de{" "}
+            <span className="text-green-500 font-bold">Logui Soft</span>.
           </p>
 
           <div className="pt-4 flex justify-center md:justify-start">
@@ -86,14 +86,13 @@ const Hero = () => {
 
           <div className="relative w-[440px] h-[440px] flex items-center justify-center">
             <img
-              src="/muñequito.png"
+              src="/muñequito.webp"
               className="w-full h-auto object-contain animate-float animate-energy transition-all duration-700"
               alt="Mascota Logui"
             />
           </div>
         </div>
       </div>
-
     </section>
   );
 };
